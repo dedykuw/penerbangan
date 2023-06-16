@@ -9,8 +9,10 @@ import pickle
 def upload_csv(request):
     if request.method == 'POST' and request.FILES['csv_file']:
         csv_file = request.FILES['csv_file']
-        df = pd.read_csv(csv_file, delimiter=";")
-        baroaltitude = df["baroaltitude"].to_numpy()
+        delimiterParam = request.POST['delimiter']
+        column = request.POST['column']
+        df = pd.read_csv(csv_file, delimiter=delimiterParam)
+        baroaltitude = df[column].to_numpy()
         X_unseen = []
         x = np.arange(0, len(baroaltitude))
         y = baroaltitude
