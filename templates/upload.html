@@ -10,7 +10,21 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="csv_file">
-        <br><br>
+        <br>
+        <input type="radio" id="html" name="delimiter" value=";">
+        <label for="html">Titik Koma</label><br>
+        <input type="radio" id="css" name="delimiter" value=",">
+        <label for="css">Koma</label>
+        <br>
+        <br>
+        
+        <input type="radio" id="javascript" name="column" value="baroaltitude">
+        <label for="javascript">Baroaltitude</label>        
+        <input type="radio" id="javascript" name="fav_language" value="altitude">
+        <label for="javascript">Altitude</label>
+        
+        <br>
+        <br>
         <input type="submit" value="Upload">
     </form>
 </body>
